@@ -1,0 +1,41 @@
+clearvars;
+%Disc with radius R and with x and y defined like
+% x = Rcos(θ)
+% y = Rsin(θ)
+
+N = 100;
+R = 1;
+r = R*rand(N);
+theta = 2*pi*rand(N);
+
+x = r.*cos(theta);
+y = r.*sin(theta);
+
+figure(1);
+plot(x,y, 'ob');
+xlabel('x');
+ylabel('y');
+
+% B = T(A) -> P_B = P_A(a)/|J_T(a)|
+%if % x = Rcos(θ) & y = Rsin(θ) then:
+% |J| = |δx/δr δx/δθ| = |Rcos(θ) -Rsin(θ)| = Rcos(θ)^2 + Rsin(θ)^2 = R
+%       |δy/δr δy/δθ|   |cos(θ)    sin(θ)|
+
+% p(x,y) = P(r,θ)/r
+% if r = f(u) with 0 ≤ u ≤ 1
+% J = |f'(u)cosθ  -f(u)sinθ| = f(u)f'(u)cosθ^2 + f(u)f'(u)sinθ^2 = f(u)f'(u)
+%     |f'(u)sinθ   f(u)cosθ|
+% f(u)f'(u) = c -> f'(u) = c/f(u)
+% f(0) = 0 & f(1) = 1 & r = √(a)
+% r = R*√rand(1) & θ = 2π*rand(1)
+
+
+r_s = R*sqrt(rand(N));
+theta_s = 2*pi*rand(N);
+x = r_s.*cos(theta_s);
+y = r_s.*sin(theta_s);
+
+figure(2);
+plot(x,y, '.b');
+xlabel('x');
+ylabel('y');
